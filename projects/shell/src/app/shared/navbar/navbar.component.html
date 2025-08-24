@@ -1,5 +1,5 @@
-<main class='sticky top-0 z-20 hidden px-8 shadow bg-primary sm:block'>
-  <div class='flex items-center max-w-6xl mx-auto lg:justify-between'>
+<main class='fixed w-full bottom-0 z-20 hidden px-8 shadow bg-primary md:block'>
+  <div class='flex items-center max-w-6xl mx-auto md:justify-between'>
     <ng-container *ngTemplateOutlet="leftNavItems"></ng-container>
     <ng-container *ngTemplateOutlet="rightNavItems"></ng-container>
 
@@ -120,14 +120,14 @@
 </ng-template>
 
 
-<main class="sm:hidden">
+<main class="md:hidden">
 
   <!-- Top bar: avatar + search + chat -->
   <div class="max-w-6xl px-5 py-2 mx-auto bg-primary">
-    <div class="flex items-center justify-between">
+    <div class="w-full flex items-center justify-between space-x-2">
 
       <!-- Left: avatar + search -->
-      <div class="flex items-center space-x-4">
+      <div class="w-full flex items-center space-x-2">
         <a href="/">
           <img
             class="w-8 h-8"
@@ -136,12 +136,12 @@
           />
         </a>
 
-        <div class="flex items-center py-1.5 px-3 rounded bg-[#EEF3F7]">
+        <div class="w-full flex items-center py-1.5 px-3 rounded bg-[#EEF3F7]">
           <i class="fa-solid fa-search text-gray-500 text-sm"></i>
           <input
             type="text"
             placeholder="Search"
-            class="bg-[#EEF3F7] focus:outline-none ml-2"
+            class="w-full bg-[#EEF3F7] focus:outline-none ml-2"
           />
         </div>
       </div>
