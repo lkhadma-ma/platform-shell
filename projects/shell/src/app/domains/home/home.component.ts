@@ -4,11 +4,12 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from "./header/header.component";
 import { FindJobComponent } from "./find-job/find-job.component";
 import { ToolsComponent } from "./tools/tools.component";
+import { JoinFamilyComponent } from "./join-family/join-family.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, HeaderComponent, FindJobComponent, ToolsComponent],
+  imports: [NavbarComponent, FooterComponent, HeaderComponent, FindJobComponent, ToolsComponent, JoinFamilyComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
