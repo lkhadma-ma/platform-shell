@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { SectionComponent } from "@shared/section/section.component";
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+  selector: 'app-find-job',
+  templateUrl: './find-job.component.html',
+  styleUrls: ['./find-job.component.scss'],
   imports: [SectionComponent]
 })
-export class FooterComponent implements OnInit {
-
-  year = new Date().getFullYear()
+export class FindJobComponent implements OnInit {
 
   constructor() { }
 
