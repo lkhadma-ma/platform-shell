@@ -1,3 +1,4 @@
 {
-	"feed": "http://localhost:4201/remoteEntry.json"
+	"feed": "http://localhost:4201/remoteEntry.json",
+	"shared": "http://localhost:4202/remoteEntry.json"
 }

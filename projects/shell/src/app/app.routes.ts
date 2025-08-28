@@ -9,9 +9,6 @@ export const routes: Routes = [
     },
     {
         path: 'feeds', 
-        title: 'Feeds',
-        loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
-        
-
+        loadChildren: () => import('@domains/feed/feature/feed.routes').then(m => m.routes)
     }
 ];

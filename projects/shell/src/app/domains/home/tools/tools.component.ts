@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SectionComponent } from "@shared/section/section.component";
+import { SectionComponent } from "@shared/ui/section/section.component";
 
 @Component({
   selector: 'app-tools',
