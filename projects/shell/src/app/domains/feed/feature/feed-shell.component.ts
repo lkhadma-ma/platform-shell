@@ -24,9 +24,9 @@ export class FeedShellComponent implements AfterViewInit {
   constructor(private injector: Injector) {}
 
   async ngAfterViewInit() {
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     // -------------------------- STYLES --------------------------
     await loadRemoteStyles('shared');
+    await loadRemoteStyles('feed');
     // -------------------------- FOOTER --------------------------
     const footerModule = await loadRemoteModule({
       remoteName: 'shared',    
