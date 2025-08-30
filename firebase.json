@@ -1,6 +1,6 @@
 {
     "hosting": {
-      "site": "platform-shell",
+      "site": "lkhadma-ma",
       "public": "dist/shell/browser",
       "ignore": [
         "firebase.json",
