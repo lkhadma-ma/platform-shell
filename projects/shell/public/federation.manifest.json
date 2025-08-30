@@ -1,5 +1,5 @@
 {
 	"feed": "http://localhost:4201/remoteEntry.json",
-	"shared": "https://lkhadma-ma-mfe-user.web.app/remoteEntry.json",
+	"shared": "https://lkhadma-ma-mfe-shared.web.app/remoteEntry.json",
 	"user": "http://localhost:4204/remoteEntry.json"
 }
