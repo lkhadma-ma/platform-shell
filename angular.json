@@ -82,6 +82,12 @@
 					},
 					"configurations": {
 						"production": {
+							"fileReplacements": [
+								{
+									"replace": "public/federation.manifest.json",
+									"with": "public/federation.manifest.prod.json"
+								}
+							],
 							"budgets": [
 								{
 									"type": "initial",
