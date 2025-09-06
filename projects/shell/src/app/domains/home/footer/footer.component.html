@@ -65,14 +65,14 @@
 </app-section>
 <app-section ngxClass="max-sm:px-3">
   <div class="py-4 text-center text-xs md:text-sm text-gray-500">
-    <div class="flex flex-wrap gap-2 *:text-[12px] font-[700] ">
+    <div class="flex flex-wrap gap-2 *:text-[12px] font-[700]">
       <span class="flex items-center space-x-2">
         <img class=" h-5" src="logoNoBg.png" alt="">
         <span>© {{year}}</span>
       </span>
 
       @for (item of [1,1,1,1,1,1,1,1,11,1,1,1,1,1]; track $index) {
-        <a href="" class="hover:underline m-2 font-[700]">my link 1</a>
+        <a href="" class="hover:underline m-2 font-[700]" routerLink="/feeds">my link 1</a>
       }
     </div>
   </div>
