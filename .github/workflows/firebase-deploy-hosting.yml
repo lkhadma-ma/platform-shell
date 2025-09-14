@@ -34,4 +34,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/lkhadma-maroc  # Your Angular build output
+          publish_dir: ./dist/shell/browser  # Your Angular build output
