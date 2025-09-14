@@ -30,6 +30,9 @@ jobs:
       - name: Build Angular project with base-href
         run: npm run build -- --base-href /lkhadma-maroc/  # Adjust if project URL is different
 
+      - name: ls dist folder
+        run: ls 
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
