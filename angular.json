@@ -84,8 +84,8 @@
 						"production": {
 							"fileReplacements": [
 								{
-									"replace": "public/federation.manifest.json",
-									"with": "public/federation.manifest.prod.json"
+									"replace": "projects/shell/public/federation.manifest.json",
+									"with": "projects/shell/public/federation.manifest.prod.json"
 								}
 							],
 							"budgets": [
