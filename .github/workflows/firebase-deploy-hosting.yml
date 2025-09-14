@@ -28,13 +28,13 @@ jobs:
         run: npm ci
 
       - name: Build Angular project with base-href
-        run: npm run build -- --base-href /lkhadma-maroc/  # Adjust if project URL is different
+        run: npm run build -- --base-href /lkhadma-maroc/
 
-      - name: ls dist folder
-        run: ls 
+      - name: List build folder
+        run: ls dist/shell/browser
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /dist/shell/browser  # Your Angular build output
+          publish_dir: dist/shell/browser
