@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -27,13 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project with verbose logging
-        run: npm run build
+      - name: Build Angular project with base-href
+        run: npm run build -- --base-href /lkhadma-maroc/  # Adjust if project URL is different
 
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v7
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: live
-          projectId: lkhadma-maroc
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/lkhadma-maroc  # Your Angular build output
