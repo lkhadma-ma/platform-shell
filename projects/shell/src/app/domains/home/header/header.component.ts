@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { loadRemoteModule } from '@angular-architects/native-federation';
+import { Component, Injector, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { loadRemoteStyles } from '@shared/util/load-remote-styles';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('btnContinueWithGoogle', { read: ViewContainerRef, static: true })
+  btnContinueWithGoogleContainer!: ViewContainerRef;
 
-  ngOnInit() {
+  constructor(private injector: Injector) { }
+
+  async ngOnInit() {
+    await loadRemoteStyles('auth');
+    // -------------------------- btn Continue With Google --------------------------
+    const btnContinueWithGoogleModule = await loadRemoteModule({
+      remoteName: 'auth',    
+      exposedModule: './BtnContinueWithGoogle'
+    });
+
+
+    const btnContinueWithGoogle = btnContinueWithGoogleModule.BtnContinueWithGoogle;
+
+    this.btnContinueWithGoogleContainer.createComponent(btnContinueWithGoogle, { injector: this.injector });
   }
 
 }
