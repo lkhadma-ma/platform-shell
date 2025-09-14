@@ -1,6 +1,6 @@
 {
-	"feed": "https://lkhadma-ma-mfe-feed.web.app/remoteEntry.json",
-	"shared": "https://lkhadma-ma-mfe-shared.web.app/remoteEntry.json",
-	"user": "https://lkhadma-ma-mfe-user.web.app/remoteEntry.json",
-	"auth": "https://lkhadma-ma-mfe-auth.web.app/remoteEntry.json"
+	"feed": "https://lkhadma-maroc-mfe-feed.web.app/remoteEntry.json",
+	"shared": "https://lkhadma-maroc-mfe-shared.web.app/remoteEntry.json",
+	"user": "https://lkhadma-maroc-mfe-user.web.app/remoteEntry.json",
+	"auth": "https://lkhadma-maroc-mfe-auth.web.app/remoteEntry.json"
 }
