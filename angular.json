@@ -82,10 +82,11 @@
 					},
 					"configurations": {
 						"production": {
-							"fileReplacements": [
+							"assets": [
 								{
-									"replace": "projects/shell/public/federation.manifest.json",
-									"with": "projects/shell/public/federation.manifest.prod.json"
+									"glob": "federation.manifest.json",
+									"input": "projects/shell/src/env/prod",
+									"output": "."
 								}
 							],
 							"budgets": [
@@ -103,6 +104,13 @@
 							"outputHashing": "all"
 						},
 						"development": {
+							"assets": [
+								{
+									"glob": "federation.manifest.json",
+									"input": "projects/shell/src/env/dev",
+									"output": "."
+								}
+							],
 							"optimization": false,
 							"extractLicenses": false,
 							"sourceMap": true
