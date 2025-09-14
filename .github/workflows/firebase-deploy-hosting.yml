@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular project with base-href
-        run: npm run build -- --base-href /lkhadma-maroc/
+        run: npm run build -- --base-href /platform-shell/
 
       - name: List build folder
         run: ls dist/shell/browser
