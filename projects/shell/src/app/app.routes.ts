@@ -10,5 +10,10 @@ export const routes: Routes = [
     {
         path: 'feeds', 
         loadChildren: () => import('@domains/feed/feature/feed.routes').then(m => m.routes)
-    }
+    },
+    {
+        path: 'auth', 
+        loadChildren: () => import('@domains/auth/feature/auth.routes').then(m => m.routes)
+    },
+
 ];

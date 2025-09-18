@@ -15,13 +15,11 @@ export class HeaderComponent implements OnInit {
   constructor(private injector: Injector) { }
 
   async ngOnInit() {
-    await loadRemoteStyles('auth');
     // -------------------------- btn Continue With Google --------------------------
     const btnContinueWithGoogleModule = await loadRemoteModule({
       remoteName: 'auth',    
       exposedModule: './BtnContinueWithGoogle'
     });
-
 
     const btnContinueWithGoogle = btnContinueWithGoogleModule.BtnContinueWithGoogle;
 
