@@ -1,0 +1,1 @@
+import{b as o}from"./chunk-BJE3JKBP.js";import"./chunk-2VMXMS7J.js";var d=[{path:"",title:"Feeds",loadComponent:()=>import("./chunk-XHPZQMEU.js").then(e=>e.FeedShellComponent),loadChildren:()=>o("feed","./POSTS_ROUTES").then(e=>e.POSTS_ROUTES)}];export{d as routes};
