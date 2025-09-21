@@ -1,6 +1,5 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Component, Injector, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { loadRemoteStyles } from '@shared/util/load-remote-styles';
 
 @Component({
   selector: 'app-header',

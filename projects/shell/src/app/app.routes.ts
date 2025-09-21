@@ -8,12 +8,19 @@ export const routes: Routes = [
         loadComponent: () => import('@domains/home/home.component').then(m => m.HomeComponent),
     },
     {
-        path: 'feeds', 
-        loadChildren: () => import('@domains/feed/feature/feed.routes').then(m => m.routes)
+        path: 'feeds',
+        loadComponent: () => import('@shared/ui/shell/shell.component').then(m => m.ShellComponent),
+        loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
     },
     {
-        path: 'auth', 
-        loadChildren: () => import('@domains/auth/feature/auth.routes').then(m => m.routes)
+        path: 'me',
+        loadComponent: () => import('@shared/ui/shell/shell.component').then(m => m.ShellComponent),
+        loadChildren: () => loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES)
+    },
+    {
+        path: 'auth/login', 
+        loadComponent: () => import('@shared/ui/empty-shell/empty-shell.component').then(m => m.EmptyShellComponent),
+        loadChildren: () => loadRemoteModule('auth', './AUTH_ROUTES').then(m => m.AUTH_ROUTES)
     },
 
 ];

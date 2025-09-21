@@ -1,7 +1,6 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { AfterViewInit, Component, Injector, ViewChild, ViewContainerRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { loadRemoteStyles } from '@shared/util/load-remote-styles';
 
 @Component({
   selector: 'plataform-shell',
@@ -13,7 +12,7 @@ import { loadRemoteStyles } from '@shared/util/load-remote-styles';
 
   `
 })
-export class FeedShellComponent implements AfterViewInit {
+export class ShellComponent implements AfterViewInit {
 
   @ViewChild('navbarContainer', { read: ViewContainerRef, static: true })
   navbarContainer!: ViewContainerRef;
@@ -24,9 +23,6 @@ export class FeedShellComponent implements AfterViewInit {
   constructor(private injector: Injector) {}
 
   async ngAfterViewInit() {
-    // -------------------------- STYLES --------------------------
-    await loadRemoteStyles('shared');
-    await loadRemoteStyles('feed');
     // -------------------------- FOOTER --------------------------
     const footerModule = await loadRemoteModule({
       remoteName: 'shared',    

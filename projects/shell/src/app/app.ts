@@ -11,7 +11,11 @@ import { loadRemoteStyles } from '@shared/util/load-remote-styles';
 export class App implements OnInit {
 
   async ngOnInit() {
+    // -------------------------- STYLES --------------------------
     await loadRemoteStyles('auth');
+    await loadRemoteStyles('shared');
+    await loadRemoteStyles('feed');
+    await loadRemoteStyles('user');
   }
 
 }

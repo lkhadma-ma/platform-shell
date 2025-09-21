@@ -8,7 +8,7 @@ import { RouterOutlet } from '@angular/router';
   <router-outlet></router-outlet>
   `
 })
-export class AuthShellComponent implements OnInit {
+export class EmptyShellComponent implements OnInit {
 
   constructor() { }
 
