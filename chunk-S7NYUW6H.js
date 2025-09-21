@@ -1,1 +1,0 @@
-import{b as t}from"./chunk-BJE3JKBP.js";import"./chunk-2VMXMS7J.js";var l=[{path:"",redirectTo:"login",pathMatch:"full"},{path:"login",title:"login",loadComponent:()=>import("./chunk-Z2SAZSZ4.js").then(o=>o.AuthShellComponent),loadChildren:()=>t("auth","./AUTH_ROUTES").then(o=>o.AUTH_ROUTES)}];export{l as routes};
