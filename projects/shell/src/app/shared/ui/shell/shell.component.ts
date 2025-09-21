@@ -3,13 +3,18 @@ import { AfterViewInit, Component, Injector, ViewChild, ViewContainerRef } from 
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'plataform-shell',
+  selector: 'plataform-shell-dashboard',
   imports: [RouterOutlet],
   template: `
   <ng-template #navbarContainer></ng-template>
   <router-outlet></router-outlet>
   <ng-template #footerContainer></ng-template>
-
+  `,
+  styles: `
+  :host {
+      display: block;
+      background-color: #f4f2ee;
+  }
   `
 })
 export class ShellComponent implements AfterViewInit {
