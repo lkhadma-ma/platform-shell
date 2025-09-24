@@ -4,18 +4,32 @@ import { loadRemoteModule } from '@angular-architects/native-federation';
 export const routes: Routes = [
     {
         path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+    },
+    {
+        path: 'home',
         title: 'Job Plataform',
         loadComponent: () => import('@domains/home/home.component').then(m => m.HomeComponent),
     },
     {
-        path: 'feeds',
+        path: 'lk',
         loadComponent: () => import('@shared/ui/shell/shell.component').then(m => m.ShellComponent),
-        loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
-    },
-    {
-        path: 'me',
-        loadComponent: () => import('@shared/ui/shell/shell.component').then(m => m.ShellComponent),
-        loadChildren: () => loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES)
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'feeds'
+            },
+            {
+                path: 'feeds',
+                loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
+            },
+            {
+                path: 'me',
+                loadChildren: () => loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES)
+            },
+        ]
     },
     {
         path: 'auth/login', 
