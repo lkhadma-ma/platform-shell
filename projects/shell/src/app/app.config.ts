@@ -3,12 +3,18 @@ import { provideRouter } from '@angular/router';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { routes } from './app.routes';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { meInterceptor } from '@shared/interceptors/header-interceptor';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(
+      withInterceptors([meInterceptor])
+    ),
     provideFirebaseApp(() => initializeApp({
       apiKey: "AIzaSyBx4JaidDuAlJPtIfWGvc6xc7feBKOMz0M",
       authDomain: "authentication-lkhadma-ma.firebaseapp.com",
