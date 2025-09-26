@@ -26,7 +26,7 @@ export const routes: Routes = [
                 loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
             },
             {
-                path: 'me',
+                path: ':username',
                 loadChildren: () => loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES)
             },
         ]
