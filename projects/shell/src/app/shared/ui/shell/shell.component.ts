@@ -35,7 +35,7 @@ export class ShellComponent implements AfterViewInit {
     });
 
 
-    const footer = footerModule.FooterComponent;
+    const footer = footerModule.ShellFooterComponent;
 
     this.footerContainer.createComponent(footer, { injector: this.injector });
     // -------------------------- NAVBAR --------------------------
@@ -45,7 +45,7 @@ export class ShellComponent implements AfterViewInit {
       });
   
   
-      const navbar = navbarModule.NavbarComponent;
+      const navbar = navbarModule.ShellNavbarComponent;
   
       this.navbarContainer.createComponent(navbar, { injector: this.injector });
   }
