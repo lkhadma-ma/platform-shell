@@ -31,7 +31,7 @@ export class ShellComponent implements AfterViewInit {
     // -------------------------- FOOTER --------------------------
     const footerModule = await loadRemoteModule({
       remoteName: 'shared',    
-      exposedModule: './footer'
+      exposedModule: './ShellFooterComponent'
     });
 
 
@@ -41,7 +41,7 @@ export class ShellComponent implements AfterViewInit {
     // -------------------------- NAVBAR --------------------------
     const navbarModule = await loadRemoteModule({
         remoteName: 'shared',    
-        exposedModule: './navbar'
+        exposedModule: './ShellNavbarComponent'
       });
   
   
