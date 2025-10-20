@@ -32,7 +32,7 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'auth/login', 
+        path: 'auth', 
         loadComponent: () => import('@shared/ui/empty-shell/empty-shell.component').then(m => m.EmptyShellComponent),
         loadChildren: () => loadRemoteModule('auth', './AUTH_ROUTES').then(m => m.AUTH_ROUTES)
     },
