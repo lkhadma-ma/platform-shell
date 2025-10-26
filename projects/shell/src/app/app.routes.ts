@@ -1,7 +1,8 @@
-import { Routes } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { AccountTypeService } from '@shared/commun/account-type.service';
 import { inject } from '@angular/core';
+import { AccountTypeResolver } from '@shared/commun/account-type.resolver';
 
 export const routes: Routes = [
     {
@@ -28,14 +29,16 @@ export const routes: Routes = [
                 loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
             },
             {
-                path: ':username',
-                loadChildren: async () => {
-                    const accountTypeService = inject(AccountTypeService);
-                    const isBusiness = await accountTypeService.isBusinessAccount();
-                    return isBusiness ? loadRemoteModule('business', './ME_ROUTES').then(m => m.ME_ROUTES) 
-                        : loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES);
-                }
-            },
+                    path: ':username',
+                    resolve: { AccountTypeResolver },
+                    loadChildren: () => {
+                        const accountTypeService = inject(AccountTypeService);
+                        return accountTypeService.isBusinessAccount()
+                            ? loadRemoteModule('business', './ME_ROUTES').then(m => m.ME_ROUTES)
+                            : loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES);
+                    }
+            }
+              
         ]
     },
     {

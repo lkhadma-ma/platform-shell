@@ -1,6 +1,7 @@
 import { Injectable, inject } from "@angular/core";
+import { Router } from "@angular/router";
 import { AuthHttpService } from "@shared/auth/auth-http.service";
-import { lastValueFrom, map } from "rxjs";
+import { EMPTY, catchError, lastValueFrom, map } from "rxjs";
 
 enum AccountType {
   BUSINESS = 'BUSINESS',
@@ -16,20 +17,32 @@ interface AccountTypeResponse {
 })
 export class AccountTypeService {
   
-  private http = inject(AuthHttpService) 
+  private http = inject(AuthHttpService);
+  private router = inject(Router);
+  private accountType: AccountType | null = null;
   
-  // Constants
   private readonly baseUrl = 'http://localhost:8080/mbe-user/api/v1';
 
-  private checker = this.http.get<AccountTypeResponse>(`${this.baseUrl}/users/check-account-type`);
-
-  async isBusinessAccount() {
-    const state = await lastValueFrom(this.checker);
-    return state.accountType === AccountType.BUSINESS;
+  isBusinessAccount() {
+    return this.accountType === AccountType.BUSINESS;
   }
 
-  async isPersonalAccount() {
-    const state = await lastValueFrom(this.checker);
-    return state.accountType === AccountType.PERSONAL;
+  isPersonalAccount() {
+    return this.accountType === AccountType.PERSONAL;
   }
+
+  async checkAccountType(username : string) {
+    const checker = this.http.get<AccountTypeResponse>(`${this.baseUrl}/users/check-account-type?username=${username}`)
+    .pipe(
+      map(response => {
+        this.accountType = response.accountType;
+      }),
+      catchError(_ => {
+        this.router.navigate(['/lk/feeds']);
+        throw EMPTY;
+      })
+    );
+    return lastValueFrom(checker);
+  }
+
 }
