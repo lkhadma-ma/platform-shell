@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/native-federation';
+import { AccountTypeService } from '@shared/commun/account-type.service';
+import { inject } from '@angular/core';
 
 export const routes: Routes = [
     {
@@ -27,7 +29,12 @@ export const routes: Routes = [
             },
             {
                 path: ':username',
-                loadChildren: () => loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES)
+                loadChildren: async () => {
+                    const accountTypeService = inject(AccountTypeService);
+                    const isBusiness = await accountTypeService.isBusinessAccount();
+                    return isBusiness ? loadRemoteModule('business', './ME_ROUTES').then(m => m.ME_ROUTES) 
+                        : loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES);
+                }
             },
         ]
     },
