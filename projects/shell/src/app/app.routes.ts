@@ -34,8 +34,8 @@ export const routes: Routes = [
                 loadChildren: () => loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES)
             },
             {
-                path: 'b/:username',
-                loadChildren: () => loadRemoteModule('business', './ME_ROUTES').then(m => m.ME_ROUTES)
+                path: 'c/:username',
+                loadChildren: () => loadRemoteModule('company', './ME_ROUTES').then(m => m.ME_ROUTES)
             }
               
         ]
