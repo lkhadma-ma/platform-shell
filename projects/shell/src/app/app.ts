@@ -16,6 +16,7 @@ export class App implements OnInit {
     await loadRemoteStyles('shared');
     await loadRemoteStyles('feed');
     await loadRemoteStyles('user');
+    await loadRemoteStyles('company');
   }
 
 }

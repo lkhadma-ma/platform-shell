@@ -1,7 +1,7 @@
 {
-	"company": "https://lkhadma-ma.github.io/mfe-company/remoteEntry.json",
+	"company": "http://localhost:4207/remoteEntry.json",
 	"feed": "https://lkhadma-ma.github.io/mfe-feed/remoteEntry.json",
 	"shared": "https://lkhadma-ma.github.io/mfe-shared/remoteEntry.json",
-	"user": "http://localhost:4204/remoteEntry.json",
+	"user": "https://lkhadma-ma.github.io/mfe-user/remoteEntry.json",
 	"auth": "https://lkhadma-ma.github.io/mfe-auth/remoteEntry.json"
 }
