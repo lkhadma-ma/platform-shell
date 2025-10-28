@@ -34,25 +34,39 @@
     
       </div>
       <!-- Avatar -->
-      <div class="px-4 py-3 rounded-full min-w-[max-content] z-[99]">
-        <a routerLink="/auth/login" class="flex items-center justify-center">
-          <div class="text-gray-600 ">
-            <span class="flex items-center text-md font-semibold">
-              Join now
-            </span>
-          </div>
-        </a>
-      </div>
-      <div class="border border-blue-600 px-5 py-3 rounded-full z-[99]">
-        <a routerLink="/auth/login" class="flex items-center justify-center min-w-[max-content]">
-          <img class="rounded-full w-7 h-7 hidden" src="https://media.licdn.com/dms/image/v2/D4D03AQHsr6KATZEHSQ/profile-displayphoto-shrink_100_100/B4DZSaPw.bGcAU-/0/1737754612249?e=1758758400&v=beta&t=VjjOnWpELd2SSZnZZxKxeTy9hJ9jQrN0fLvwGUs3F2E" alt="Me" />
-          <div class="text-blue-600 'ml-2'">
-            <span class="flex items-center text-md font-semibold">
-              Sign In
-            </span>
-          </div>
-        </a>
-      </div>
+      @let userIn = user();
+      @if (userIn) {
+        <div class="px-4 py-3 rounded-full min-w-[max-content] z-[99]">
+          <a [routerLink]="['/lk',userIn.username]" class="flex items-center justify-center">
+            <div class="text-gray-600 bg-slate-200 flex items-center border border-blue-300 px-6 py-2 rounded-3xl">
+              <img [src]="userIn.avatar" alt="" class="rounded-full w-10 h-10 mr-2" />
+              <span class="text-sm flex items-center text-md font-semibold">
+                Continue With <br> {{ userIn.name}}
+              </span>
+            </div>
+          </a>
+        </div>
+      }@else {
+        <div class="px-4 py-3 rounded-full min-w-[max-content] z-[99]">
+          <a routerLink="/auth/login" class="flex items-center justify-center">
+            <div class="text-gray-600 ">
+              <span class="flex items-center text-md font-semibold">
+                Join now
+              </span>
+            </div>
+          </a>
+        </div>
+        <div class="border border-blue-600 px-5 py-3 rounded-full z-[99]">
+          <a routerLink="/auth/login" class="flex items-center justify-center min-w-[max-content]">
+            <img class="rounded-full w-7 h-7 hidden" src="https://media.licdn.com/dms/image/v2/D4D03AQHsr6KATZEHSQ/profile-displayphoto-shrink_100_100/B4DZSaPw.bGcAU-/0/1737754612249?e=1758758400&v=beta&t=VjjOnWpELd2SSZnZZxKxeTy9hJ9jQrN0fLvwGUs3F2E" alt="Me" />
+            <div class="text-blue-600 'ml-2'">
+              <span class="flex items-center text-md font-semibold">
+                Sign In
+              </span>
+            </div>
+          </a>
+        </div>
+      }
     </div>
   </div>
 </main>
