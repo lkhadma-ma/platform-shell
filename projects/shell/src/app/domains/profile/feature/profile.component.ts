@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { Component, Injector, OnInit, ViewChild, ViewContainerRef, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountTypeService } from '../data-access/account-type.store';
 import { SectionComponent } from "@shared/ui/section/section.component";
+import { loadRemoteModule } from '@angular-architects/native-federation';
 
 @Component({
   selector: 'mfe-shell-profile',
@@ -12,38 +13,75 @@ import { SectionComponent } from "@shared/ui/section/section.component";
         <span class="sr-only">Loading...</span>
     </div>
   </shell-section>
+  <ng-template #profile></ng-template>
   `,
   imports: [SectionComponent],
 })
 export class ProfileComponent implements OnInit {
+
+  @ViewChild('profile', { read:  ViewContainerRef, static: true })
+  profileContainer!: ViewContainerRef;
+
   private route = inject(ActivatedRoute);
-  private router = inject(Router);
   private accountTypeService = inject(AccountTypeService);
+  private injector = inject(Injector);
 
   async ngOnInit(): Promise<void> {
+
+
     this.route.paramMap.subscribe((params) => {
       const username = params.get('username');
+      this.clearProfileContainer();
       if (!username) {
-        this.router.navigate(['lk','feeds']);
+        this.navigateToAccountType("notFound");
         return;
       };
 
       this.accountTypeService.checkAccountType(username)
-        .subscribe(({ accountType }) => {
-            this.navigateToAccountType(accountType, username);
-        },() => {
-            this.router.navigate(['lk','feeds']);
-            return;
+        .subscribe({
+          next: ({ accountType }) => {
+            this.navigateToAccountType(accountType);
+          },
+          error: () => {
+            this.navigateToAccountType("notFound");
+          }
         });
 
     });
   }
 
-  navigateToAccountType(accountType: string, username: string): void {
+  async navigateToAccountType(accountType: string): Promise<void> {
     if (accountType === 'PERSONAL') {
-      this.router.navigate(['lk','p',username]);
+      const userProfileModule = await loadRemoteModule({
+        remoteName: 'user', 
+        exposedModule: './MeShellComponent'
+      });
+  
+      const userProfileComponent = userProfileModule.MeShellComponent;
+  
+      this.profileContainer.createComponent(userProfileComponent, { injector: this.injector });
     } else if (accountType === 'COMPANY') {
-      this.router.navigate(['lk', 'c',username]);
+      const userProfileModule = await loadRemoteModule({
+        remoteName: 'company', 
+        exposedModule: './MeShellComponent'
+      });
+  
+      const userProfileComponent = userProfileModule.MeShellComponent;
+  
+      this.profileContainer.createComponent(userProfileComponent, { injector: this.injector });
+    } else if (accountType === 'notFound') {
+      const notFoundModule = await loadRemoteModule({
+        remoteName: 'shared', 
+        exposedModule: './ShellNotFoundComponent'
+      });
+  
+      const notFoundComponent = notFoundModule.ShellNotFoundComponent;
+  
+      this.profileContainer.createComponent(notFoundComponent, { injector: this.injector });
     }
+  }
+
+  clearProfileContainer(): void {
+    this.profileContainer.clear();
   }
 }

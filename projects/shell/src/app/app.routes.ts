@@ -22,21 +22,13 @@ export const routes: Routes = [
                 redirectTo: 'feeds'
             },
             {
-                path: 'feeds',
+                path: 'feed',
                 loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
             },
             {
                 path: ':username',
                 loadChildren: () => import('@domains/profile/feature/profile.routes').then(m => m.PROFILE_ROUTES)    
             },
-            {
-                path: 'p/:username',
-                loadChildren: () => loadRemoteModule('user', './ME_ROUTES').then(m => m.ME_ROUTES)
-            },
-            {
-                path: 'c/:username',
-                loadChildren: () => loadRemoteModule('company', './ME_ROUTES').then(m => m.ME_ROUTES)
-            }
               
         ]
     },

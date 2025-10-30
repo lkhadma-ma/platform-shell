@@ -1,7 +1,6 @@
 import { Injectable, inject } from "@angular/core";
-import { Router } from "@angular/router";
 import { AuthHttpService } from "@shared/auth/auth-http.service";
-import { EMPTY, Observable, catchError, lastValueFrom, throwError } from "rxjs";
+import { Observable } from "rxjs";
 
 enum AccountType {
   BUSINESS = 'BUSINESS',
