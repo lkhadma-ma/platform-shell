@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
  * @param setLoading A function to set the loading state, e.g. `isLoading = true/false`
  */
 export function withLoading<T>(setLoading: (state: boolean) => void) {
-  return (source$: Observable<T>): Observable<T> => {
-    return source$.pipe(
-      tap(() => setLoading(true)),
-      finalize(() => setLoading(false))
-    );
-  };
+    return (source$: Observable<T>): Observable<T> => {
+      setLoading(true);
+      return source$.pipe(
+        finalize(() => setLoading(false))
+      );
+    };
 }
