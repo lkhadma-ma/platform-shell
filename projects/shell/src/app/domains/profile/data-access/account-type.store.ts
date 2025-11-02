@@ -3,7 +3,7 @@ import { AuthHttpService } from "@shared/auth/auth-http.service";
 import { Observable } from "rxjs";
 
 enum AccountType {
-  BUSINESS = 'BUSINESS',
+  BUSINESS = 'COMPANY',
   PERSONAL = 'PERSONAL'
 }
 
