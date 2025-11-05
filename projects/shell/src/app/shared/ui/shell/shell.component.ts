@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'plataform-shell-dashboard',
   imports: [RouterOutlet],
+  host: { 'class': 'min-h-screen' },
   template: `
   <ng-template #navbarContainer></ng-template>
   <router-outlet></router-outlet>
