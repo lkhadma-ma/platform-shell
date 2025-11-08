@@ -3,5 +3,6 @@
 	"feed": "http://localhost:4201/remoteEntry.json",
 	"shared": "http://localhost:4202/remoteEntry.json",
 	"user": "http://localhost:4204/remoteEntry.json",
-	"auth": "http://localhost:4205/remoteEntry.json"
+	"auth": "http://localhost:4205/remoteEntry.json",
+	"search": "http://localhost:4208/remoteEntry.json"
 }
