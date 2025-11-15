@@ -26,6 +26,10 @@ export const routes: Routes = [
                 loadChildren: () => loadRemoteModule('feed', './POSTS_ROUTES').then(m => m.POSTS_ROUTES)
             },
             {
+                path: 'search',
+                loadChildren: () => loadRemoteModule('search', './SEARCH_ALL_ROUTES').then(m => m.SEARCH_ALL_ROUTES)
+            },
+            {
                 path: ':username',
                 loadChildren: () => import('@domains/profile/feature/profile.routes').then(m => m.PROFILE_ROUTES)    
             },
