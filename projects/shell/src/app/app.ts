@@ -17,6 +17,7 @@ export class App implements OnInit {
     await loadRemoteStyles('feed');
     await loadRemoteStyles('user');
     await loadRemoteStyles('company');
+    await loadRemoteStyles('search');
   }
 
 }
