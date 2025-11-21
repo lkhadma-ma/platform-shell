@@ -8,16 +8,7 @@ import { loadRemoteStyles } from '@shared/util/load-remote-styles';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit {
+export class App {
 
-  async ngOnInit() {
-    // -------------------------- STYLES --------------------------
-    await loadRemoteStyles('auth');
-    await loadRemoteStyles('shared');
-    await loadRemoteStyles('feed');
-    await loadRemoteStyles('user');
-    await loadRemoteStyles('company');
-    await loadRemoteStyles('search');
-  }
 
 }
