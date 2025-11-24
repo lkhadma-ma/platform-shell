@@ -63,10 +63,10 @@ export class ProfileComponent implements OnInit {
     if (accountType === 'PERSONAL') {
       const userProfileModule = await loadRemoteModule({
         remoteName: 'user', 
-        exposedModule: './MeShellComponent'
+        exposedModule: './ShellMeComponent'
       });
   
-      const userProfileComponent = userProfileModule.MeShellComponent;
+      const userProfileComponent = userProfileModule.ShellMeComponent;
   
       this.profileContainer.createComponent(userProfileComponent, { injector: this.injector });
     } else if (accountType === 'COMPANY') {
